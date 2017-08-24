@@ -1,6 +1,8 @@
 ## Author: Jonathan Dreyfuss
 ## Date updated: 2017-08-24
 
+##load my functions
+#others can get these from github.com/jdreyf/fat-exosome-microrna
 source("B:/fcns/config.R")
 
 ##read
@@ -28,5 +30,7 @@ genes.in.reduced.model <- apply(as.matrix(tt.df$Entrez), 1, FUN=function(x){
 tt.df$in.reduced.model <- genes.in.reduced.model
 write.csv(tt.df, "pread_gene_stats.csv")
 
-##check
+##check statements from paper
 sum(tt.df$WATvsBAT.FDR[tt.df$in.reduced.model] < 0.25)==4
+tt.ss <- tt.df[tt.df$WATvsBAT.FDR < 0.25,]
+length(unique(tt.ss$Gene.Symbol)) > 50
