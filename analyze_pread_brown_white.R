@@ -31,6 +31,6 @@ tt.df$in.reduced.model <- genes.in.reduced.model
 write.csv(tt.df, "pread_gene_stats.csv")
 
 ##check statements from paper
-sum(tt.df$WATvsBAT.FDR[tt.df$in.reduced.model] < 0.25)==4
-tt.ss <- tt.df[tt.df$WATvsBAT.FDR < 0.25,]
-length(unique(tt.ss$Gene.Symbol)) > 50
+sum(tt.df$WATvsBAT.FDR[tt.df$in.reduced.model] < 0.15)==1
+tt.ss <- tt.df[tt.df$WATvsBAT.FDR < 0.15,]
+length(unique(tt.ss$Gene.Symbol)) == 35
